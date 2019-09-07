@@ -4,11 +4,10 @@
 #include "pch.h"
 #include "mylib.h"
 #include <iostream>
-
+int ma2in();
 int main()
 {
-	char s[] = "(28+32)*(90-40)";
-	printf("%lf",ExSum(s));
+	ma2in();
 	return 0;
 }
 

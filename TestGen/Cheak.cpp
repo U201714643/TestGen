@@ -2,9 +2,11 @@
 #include "mylib.h"
 #include <iostream>
 
-//Ð¡ÓÚ1/100/100¼´¿ÉÊÓÎªÎó²î
-#define MaxDelta 1e-7
+//ÕûÊýÅÐ¶Ï½á¹û
+#define NotInt 0
+#define IsInt 1
 
+int IntCheak(double x);				//¼ì²âÄ¿±ê¸¡µãÊýÊÇ·ñÎªÕûÊý
 int Div0(int x, int op, int y);		//¼ì²âÊÇ·ñ´æÔÚ³ýÒÔ0µÄÏÖÏó
 int ResultCheak(int *num, int *op);	//¼ì²âÊÇ·ñ´æÔÚ²»ºÏÀíµÄ£¨ÎÞ·¨Õû³ý¡¢Îª¸ºÊý¡¢³¬³ö·¶Î§£©½á¹û
 
@@ -35,7 +37,13 @@ int ResultCheak(int *num, int *op) {	//¼ì²âÊÇ·ñ´æÔÚ²»ºÏÀíµÄ£¨ÎÞ·¨Õû³ý¡¢Îª¸ºÊý¡¢³
 		return ERROR;		//´Ë´¦ÒËÓÚÊ¹ÓÃ¸¡µãÊý½øÐÐ±È½Ï
 	if (IntResult > 100)	//²»ÔÊÐí´óÓÚ100
 		return ERROR;		//´Ë´¦ÒËÓÚÊ¹ÓÃÕûÐÍÊý
-	if (IntResult - DoubleResult > MaxDelta || IntResult - DoubleResult < -MaxDelta)
+	if (IntCheak(DoubleResult) == NotInt)
 		return ERROR;		//²îÖµ²»Îª0£¨¶ÔÓÚ¸¡µãÊý¶øÑÔ£¬²»»áÑÏ¸ñÎª0£©¼´½á¹û²»Îª0
 	return OK;
+}
+
+int IntCheak(double x) {	//¼ì²âÄ¿±ê¸¡µãÊýÊÇ·ñÎªÕûÊý
+	if ((x - (int)x) == 0)
+		return IsInt;		//¶þÕßÏàµÈ¼´ÎªÕûÊý
+	return NotInt;
 }

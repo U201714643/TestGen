@@ -16,6 +16,12 @@
     <Filter Include="PCH">
       <UniqueIdentifier>{4a1be8fa-7ef9-4feb-bae4-dafad1b2c9b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Math">
+      <UniqueIdentifier>{a04b120f-8007-484e-b9dc-4f6c0b0700db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Generator">
+      <UniqueIdentifier>{4289e286-f7b9-40da-b54f-550aedc4a21c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -26,29 +32,29 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TestGen.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Cheak.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Initial.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MyRnd.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Sum.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Task2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
     <ClCompile Include="ExpSum.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="MyRnd.cpp">
+      <Filter>源文件\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Sum.cpp">
+      <Filter>源文件\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="TestGen.cpp">
+      <Filter>源文件\Generator</Filter>
+    </ClCompile>
+    <ClCompile Include="Task2.cpp">
+      <Filter>源文件\Generator</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheak.cpp">
+      <Filter>源文件\Generator</Filter>
+    </ClCompile>
+    <ClCompile Include="Initial.cpp">
+      <Filter>源文件\Generator</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
