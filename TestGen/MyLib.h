@@ -11,3 +11,4 @@ int MyRnd(int min, int max);				//生成位于[min,max]之间的整数
 int CheakRationality(int *num, int *op);	//检测表达式是否合理
 int IntSum(int *num, int *op);				//对表达式进行整数求值
 double FloatSum(int *num, int *op);			//对表达式进行浮点数求值
+double ExSum(char * Expression);				//对表达式进行整数求值

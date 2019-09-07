@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cheak.cpp" />
+    <ClCompile Include="ExpSum.cpp" />
     <ClCompile Include="Initial.cpp" />
     <ClCompile Include="MyRnd.cpp" />
     <ClCompile Include="pch.cpp">

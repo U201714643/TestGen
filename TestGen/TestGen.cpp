@@ -2,11 +2,14 @@
 //
 
 #include "pch.h"
+#include "mylib.h"
 #include <iostream>
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
+	char s[] = "(28+32)*(90-40)";
+	printf("%lf",ExSum(s));
+	return 0;
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
