@@ -4,7 +4,7 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-const int MAX = 1000;
+const int MAX = EXPLEN;
 
 /*»¶Ó­Ä£¿é*/
 class Entry
@@ -311,7 +311,7 @@ public:
 	}
 };
 
-double ExSum(char * Expression)
+double ExpSum(char * Expression)
 {
 	Entry::welcome();                           //»¶Ó­Ä£¿é
 	double sum = 0.0;

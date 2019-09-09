@@ -1,23 +1,47 @@
-﻿// TestGen.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
-
-#include "pch.h"
+﻿#include "pch.h"
 #include "mylib.h"
 #include <iostream>
-int ma2in();
-int main()
-{
-	ma2in();
+
+int TestGen(ExpressionNode * Address, ExpressionList * Arguements)
+{	//生成表达式的主体函数
+	for (int i = 0; i < Arguements->EqualsNum; i++) {	//生成算式的数目
+		NumNode * num;	//用于存放数字
+		int * op;		//用于存放操作符
+		//---------空间分配---------
+		if ((num = (NumNode *)malloc(sizeof(NumNode)*(Arguements->OpCount + 2))) == NULL) {
+			//数字数应比操作符数（不含括号）多1
+			exit(OVERFLOW);		//空间不足，退出
+		}
+		if ((op = (int *)malloc(sizeof(int)*(Arguements->OpCount + 1))) == NULL) {
+			exit(OVERFLOW);		//空间不足，退出
+		}
+		//---------生成操作符和操作数---------
+		for (int j = 0; j < Arguements->OpCount + 1; j++) {
+			num[j].Num = MyRnd(Arguements->NumMin, Arguements->NumMax);	//随机生成[NumMin,NumMax]内整数
+		}
+		for (int j = 0; j < Arguements->OpCount; j++) {
+			op[j] = MyRnd(Arguements->OpTypeMin, Arguements->OpTypeMax);//随机生成运算符
+		}
+		//---------生成括号---------
+		if (Arguements->KuoHao == TRUE) {
+			int KuoHaoNum = MyRnd(1, Arguements->OpCount / 2 + 1);	//括号数目
+			for (int j = 0; j < KuoHaoNum; j++) {
+				int NumLeft = MyRnd(0, Arguements->OpCount);	//添加左括号的位置
+				int NumRight = MyRnd(0, Arguements->OpCount);	//添加右括号的位置
+				if (NumLeft == NumRight) {
+					j--;	//不能为同一个数同时添加左、右括号
+					continue;
+				}
+				if (num[NumLeft].KuoHao > 0) {
+					j--;	//不能为同一个数同时添加左、右括号
+					continue;
+				}
+				if (num[NumRight].KuoHao < 0) {
+					j--;	//不能为同一个数同时添加左、右括号
+					continue;
+				}
+			}
+		}
+	}
 	return 0;
 }
-
-// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
-// 调试程序: F5 或调试 >“开始调试”菜单
-
-// 入门提示: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件

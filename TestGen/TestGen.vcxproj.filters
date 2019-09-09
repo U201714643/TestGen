@@ -44,16 +44,16 @@
     <ClCompile Include="Sum.cpp">
       <Filter>源文件\Math</Filter>
     </ClCompile>
-    <ClCompile Include="TestGen.cpp">
-      <Filter>源文件\Generator</Filter>
-    </ClCompile>
-    <ClCompile Include="Task2.cpp">
-      <Filter>源文件\Generator</Filter>
-    </ClCompile>
     <ClCompile Include="Cheak.cpp">
       <Filter>源文件\Generator</Filter>
     </ClCompile>
     <ClCompile Include="Initial.cpp">
+      <Filter>源文件\Generator</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>源文件\Generator</Filter>
+    </ClCompile>
+    <ClCompile Include="TestGen.cpp">
       <Filter>源文件\Generator</Filter>
     </ClCompile>
   </ItemGroup>
