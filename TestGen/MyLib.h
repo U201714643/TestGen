@@ -5,6 +5,7 @@
 #define FLASE 0		//Îª¼Ù
 #define TRUE 1		//ÎªÕæ
 #define EXPLEN 120	//±í´ïÊ½×î´ó³¤¶È
+#define EXPNUM 256	//±í´ïÊ½×î´óÊıÄ¿
 
 typedef struct NumNode {	//Éú³É±í´ïÊ½Ê±»ùÓÚ¸ÃÊı×Ö½á¹¹
 	int Num;	//Êı×Ö×ÔÉí
@@ -13,8 +14,8 @@ typedef struct NumNode {	//Éú³É±í´ïÊ½Ê±»ùÓÚ¸ÃÊı×Ö½á¹¹
 
 typedef struct ExpressionNode {	//Éú³ÉµÄ±í´ïÊ½
 	char Expression[EXPLEN];	//±í´ïÊ½
-	int result;		//¼ÆËã½á¹û
-	int left;		//ÓàÊı£¬½öÓÃÓÚ´øÓàÊı³ı·¨£¬·ñÔòÎª0
+	int Value;		//¼ÆËã½á¹û
+	int Left;		//ÓàÊı£¬½öÓÃÓÚ´øÓàÊı³ı·¨£¬·ñÔòÎª0
 };
 
 typedef struct ExpressionList {	//Éú³É±í´ïÊ½Ê¹ÓÃµÄ²ÎÊı±í
@@ -34,9 +35,12 @@ const char OpTxetN[4] = { '+','-','*','//' };		//ÓÃÓÚÏÔÊ¾µÄÔËËã·û£¬'//'´ú±í³ıºÅ¡
 const int OpAdd = 0, OpSub = 1, OpMpl = 2, OpDiv = 3;	//ÔËËã·û±àºÅ£¬·Ö±ğ¶ÔÓ¦"£«","©","¡Á","¡Â"
 const int OpMin = 0, OpMax = 3;		//ÔËËã·û±àºÅµÄ×î´ó¡¢×îĞ¡Öµ
 
+#define Clear(x) memset(x, 0, sizeof(x))	//Á¬Ğø¿Õ¼äÇå0
+
 void Initial();								//³õÊ¼»¯º¯Êı
 int MyRnd(int min, int max);				//Éú³ÉÎ»ÓÚ[min,max]Ö®¼äµÄÕûÊı
 int CheakRationality(int *num, int *op);	//¼ì²â±í´ïÊ½ÊÇ·ñºÏÀí
 int IntSum(int *num, int *op);				//¶Ô±í´ïÊ½½øĞĞÕûÊıÇóÖµ
 double FloatSum(int *num, int *op);			//¶Ô±í´ïÊ½½øĞĞ¸¡µãÊıÇóÖµ
 double ExpSum(char * Expression);			//¶Ô±í´ïÊ½½øĞĞÕûÊıÇóÖµ
+int TestGen(ExpressionNode * Address, ExpressionList * Arguements);	//Éú³É±í´ïÊ½

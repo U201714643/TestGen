@@ -31,14 +31,6 @@ int Div0(int x, int op, int y) {		//检测是否存在除以0的现象
 }
 
 int ResultCheak(int *num, int *op) {	//检测是否存在不合理的（无法整除、为负数、超出范围）结果
-	double DoubleResult = FloatSum(num, op);	//以浮点数表示的结果
-	double IntResult = (double)IntSum(num, op);//在仅仅保留整数部分下的结果
-	if (DoubleResult < 0)	//不允许小于0
-		return ERROR;		//此处宜于使用浮点数进行比较
-	if (IntResult > 100)	//不允许大于100
-		return ERROR;		//此处宜于使用整型数
-	if (IntCheak(DoubleResult) == NotInt)
-		return ERROR;		//差值不为0（对于浮点数而言，不会严格为0）即结果不为0
 	return OK;
 }
 

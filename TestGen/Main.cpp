@@ -5,8 +5,18 @@
 int main()
 {
 	Initial();	//初始化包括重置种子等
-	char t[] = "(1+1)/0";
-	printf("%lf", ExpSum(t));
+	ExpressionNode Exp[EXPNUM] = { 0 };	//用于存放将要生成的表达式
+	ExpressionList Arguement;	//生成参数
+	Arguement.EqualsNum = 100;
+	Arguement.KuoHao = TRUE;
+	Arguement.NumMax = 100;
+	Arguement.NumMin = 0;
+	Arguement.OpCount = 10;
+	Arguement.OpTypeMax = 3;
+	Arguement.OpTypeMin = 0;
+	Arguement.ResultMax = 100;
+	Arguement.ResultMin = 0;
+	TestGen(Exp, &Arguement);
 	return 0;
 }
 
