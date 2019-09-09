@@ -5,6 +5,8 @@
 int main()
 {
 	Initial();	//初始化包括重置种子等
+	char t[] = "(1+1)/0";
+	printf("%lf", ExpSum(t));
 	return 0;
 }
 

@@ -28,18 +28,12 @@ int TestGen(ExpressionNode * Address, ExpressionList * Arguements)
 			for (int j = 0; j < KuoHaoNum; j++) {
 				int NumLeft = MyRnd(0, Arguements->OpCount);	//添加左括号的位置
 				int NumRight = MyRnd(0, Arguements->OpCount);	//添加右括号的位置
-				if (NumLeft == NumRight) {
+				if ((NumLeft == NumRight) || (num[NumLeft].KuoHao > 0) || (num[NumRight].KuoHao < 0)) {
 					j--;	//不能为同一个数同时添加左、右括号
 					continue;
 				}
-				if (num[NumLeft].KuoHao > 0) {
-					j--;	//不能为同一个数同时添加左、右括号
-					continue;
-				}
-				if (num[NumRight].KuoHao < 0) {
-					j--;	//不能为同一个数同时添加左、右括号
-					continue;
-				}
+				num[NumLeft].KuoHao--;	//添加左括号
+				num[NumRight].KuoHao++;	//添加右括号
 			}
 		}
 	}

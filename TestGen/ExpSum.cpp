@@ -170,9 +170,7 @@ double Calculate_Cla::Call(double sum, double data, char ch)
 			ans = sum / data;
 		else
 		{
-			cout << "³ÌÐò³öÏÖ³ý0´íÎó£¬ÖÕÖ¹£¡\n";
-			system("pause");
-			exit(1);
+			return (double)ERROR;
 		}
 		break;
 	default:ans = 0.0;
