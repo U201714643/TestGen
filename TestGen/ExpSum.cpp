@@ -170,7 +170,7 @@ double Calculate_Cla::Call(double sum, double data, char ch)
 			ans = sum / data;
 		else
 		{
-			return (double)ERROR;
+			return INFINITY;
 		}
 		break;
 	default:ans = 0.0;
@@ -293,6 +293,11 @@ public:
 			if (!((int(str[i]) <= 57 && int(str[i]) >= 48) || str[i] == '(' || str[i] == ')' || str[i] == '*'
 				|| str[i] == '+' || str[i] == '-' || str[i] == '/' || str[i] == '.'))       //检测是否含有非法字符
 				return 2;
+			//------------除0检测------------
+			char *rel = strstr(str,"/0"); //首次出现地址，strstr保存的是ddabc
+			if (rel != NULL)
+				return 2;         //根据返回子字符串匹配结果输出索引位
+			//------------除0检测------------
 			else if (str[i] == '(')
 				Temp.push('0');
 			else if (str[i] == ')')
@@ -325,9 +330,9 @@ double ExpSum(char * Expression)
 		if (res == 0)
 			break;
 		else if (res == 1)
-			cout << "输入字符串括号不匹配，请重新输入：\n";
+			return FERROR;
 		else if (res == 2)
-			cout << "输入字符串有非法字符，请重新输入：\n";
+			return FERROR;
 		else
 		{
 		}

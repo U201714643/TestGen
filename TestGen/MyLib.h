@@ -1,11 +1,13 @@
 #pragma once
 #define OK 0		//正常
 #define ERROR -1	//错误
+#define FERROR -1.0f//错误(浮点数格式)
 #define OVERFLOW -2	//溢出
 #define FLASE 0		//为假
 #define TRUE 1		//为真
 #define EXPLEN 120	//表达式最大长度
 #define EXPNUM 256	//表达式最大数目
+#define TRYMAX 32	//最大尝试次数
 
 typedef struct NumNode {	//生成表达式时基于该数字结构
 	int Num;	//数字自身
@@ -37,10 +39,8 @@ const int OpMin = 0, OpMax = 3;		//运算符编号的最大、最小值
 
 #define Clear(x) memset(x, 0, sizeof(x))	//连续空间清0
 
-void Initial();								//初始化函数
-int MyRnd(int min, int max);				//生成位于[min,max]之间的整数
-int CheakRationality(int *num, int *op);	//检测表达式是否合理
-int IntSum(int *num, int *op);				//对表达式进行整数求值
-double FloatSum(int *num, int *op);			//对表达式进行浮点数求值
-double ExpSum(char * Expression);			//对表达式进行整数求值
+void Initial();						//初始化函数
+int MyRnd(int min, int max);		//生成位于[min,max]之间的整数
+double ExpSum(char * Expression);	//对表达式进行浮点数求值
+int Cheak(char * Expression, int ResultMin, int ResultMax);			//检测表达式是否合理（无法整除、为负数、超出范围），并求值
 int TestGen(ExpressionNode * Address, ExpressionList * Arguements);	//生成表达式

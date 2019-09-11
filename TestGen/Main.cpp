@@ -11,7 +11,7 @@ int main()
 	Arguement.KuoHao = TRUE;
 	Arguement.NumMax = 100;
 	Arguement.NumMin = 0;
-	Arguement.OpCount = 10;
+	Arguement.OpCount = 3;
 	Arguement.OpTypeMax = 3;
 	Arguement.OpTypeMin = 0;
 	Arguement.ResultMax = 100;
