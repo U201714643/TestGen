@@ -7,8 +7,9 @@ int main()
 	Initial();	//初始化包括重置种子等
 	ExpressionNode Exp[EXPNUM] = { 0 };	//用于存放将要生成的表达式
 	ExpressionList Arguement;	//生成参数
-	Arguement.EqualsNum = 100;
+	Arguement.EqualsNum = 50;
 	Arguement.KuoHao = TRUE;
+	Arguement.Repeat = FLASE;
 	Arguement.NumMax = 100;
 	Arguement.NumMin = 0;
 	Arguement.OpCount = 3;
@@ -17,6 +18,11 @@ int main()
 	Arguement.ResultMax = 100;
 	Arguement.ResultMin = 0;
 	TestGen(Exp, &Arguement);
+	int j = 0;
+	for (int i = 0; i < Arguement.EqualsNum; i++) {
+		if (Exp[i].Value == 0)
+			j++;
+	}
 	return 0;
 }
 

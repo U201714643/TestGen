@@ -22,6 +22,9 @@
     <Filter Include="源文件\Generator">
       <UniqueIdentifier>{4289e286-f7b9-40da-b54f-550aedc4a21c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Main">
+      <UniqueIdentifier>{b39455c6-c1b2-4e55-a1ed-b927e48d0c93}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -44,14 +47,14 @@
     <ClCompile Include="Cheak.cpp">
       <Filter>源文件\Generator</Filter>
     </ClCompile>
-    <ClCompile Include="Initial.cpp">
+    <ClCompile Include="TestGen.cpp">
       <Filter>源文件\Generator</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
-      <Filter>源文件\Generator</Filter>
+      <Filter>源文件\Main</Filter>
     </ClCompile>
-    <ClCompile Include="TestGen.cpp">
-      <Filter>源文件\Generator</Filter>
+    <ClCompile Include="Initial.cpp">
+      <Filter>源文件\Main</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

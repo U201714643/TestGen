@@ -30,17 +30,18 @@ typedef struct ExpressionList {	//生成表达式使用的参数表
 	int ResultMin;	//结果范围
 	int ResultMax;	//结果范围
 	int KuoHao;		//是否允许括号
+	int Repeat;		//是否允许重复
 };
 
-const char OpTxet[][4] = { "＋","﹣","×","÷" };	//用于显示的运算符，注意这些符号是两字节，所以不能直接用char型数组
-const char OpTxetN[4] = { '+','-','*','//' };		//用于显示的运算符，'//'代表除号“/”
+const char OpTxet[4] = { '+','-','*','//' };		//用于显示的运算符，'//'代表除号“/”
 const int OpAdd = 0, OpSub = 1, OpMpl = 2, OpDiv = 3;	//运算符编号，分别对应"＋","﹣","×","÷"
-const int OpMin = 0, OpMax = 3;		//运算符编号的最大、最小值
 
 #define Clear(x) memset(x, 0, sizeof(x))	//连续空间清0
 
 void Initial();						//初始化函数
 int MyRnd(int min, int max);		//生成位于[min,max]之间的整数
 double ExpSum(char * Expression);	//对表达式进行浮点数求值
-int Cheak(char * Expression, int ResultMin, int ResultMax);			//检测表达式是否合理（无法整除、为负数、超出范围），并求值
+int RepeatCheak(ExpressionNode * Address, int Num);				//检测算式是否重复
+int AnsCheak(char * Expression, int ResultMin, int ResultMax);	//检测表达式是否合理（无法整除、为负数、超出范围），并求值
 int TestGen(ExpressionNode * Address, ExpressionList * Arguements);	//生成表达式
+int KuoHaoCheak(int NumLeft, int NumRight, int OpCount, NumNode * num);	//检测括号是否合理
