@@ -5,6 +5,9 @@
 int main()
 {
 	Initial();	//初始化包括重置种子等
+	/*
+	ExpressionNode Exp[EXPNUM] = { 0 };	//用于存放将要生成的表达式
+	LeftGen(Exp, 20);*/
 	ExpressionNode Exp[EXPNUM] = { 0 };	//用于存放将要生成的表达式
 	ExpressionList Arguement;	//生成参数
 	Arguement.EqualsNum = 50;

@@ -41,7 +41,9 @@ const int OpAdd = 0, OpSub = 1, OpMpl = 2, OpDiv = 3;	//运算符编号，分别对应"＋"
 void Initial();						//初始化函数
 int MyRnd(int min, int max);		//生成位于[min,max]之间的整数
 double ExpSum(char * Expression);	//对表达式进行浮点数求值
+int LeftGen(ExpressionNode * Address, int Num);		//生成带余数的除法算式
 int RepeatCheak(ExpressionNode * Address, int Num);				//检测算式是否重复
 int AnsCheak(char * Expression, int ResultMin, int ResultMax);	//检测表达式是否合理（无法整除、为负数、超出范围），并求值
 int TestGen(ExpressionNode * Address, ExpressionList * Arguements);	//生成表达式
 int KuoHaoCheak(int NumLeft, int NumRight, int OpCount, NumNode * num);	//检测括号是否合理
+

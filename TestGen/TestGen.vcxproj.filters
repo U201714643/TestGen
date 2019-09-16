@@ -56,5 +56,8 @@
     <ClCompile Include="Initial.cpp">
       <Filter>源文件\Main</Filter>
     </ClCompile>
+    <ClCompile Include="LeftGen.cpp">
+      <Filter>源文件\Generator</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
